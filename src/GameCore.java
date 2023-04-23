@@ -10,8 +10,7 @@ public class GameCore extends GameEngine{
     private Homepage homepage;
     private boolean upKey, downKey, leftKey, rightKey, spaceKey;
 
-    public GameCore(Homepage homepage){
-        this.homepage = homepage;
+    public GameCore(Homepage homepage) {
         gamePanel = new JPanel();
         gamePanel.setBackground(Color.BLACK);
         gamePanel.setPreferredSize(new Dimension(500, 500));

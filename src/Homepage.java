@@ -67,8 +67,11 @@ public class Homepage extends GameEngine {
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // 处理 Play 按钮
-                gamecore.getGamePanel();
+                mPanel.removeAll();
+                GameCore gameCore = new GameCore(mHomepage);
+                mPanel.add(gameCore.getGamePanel());
+                mPanel.revalidate();
+                mPanel.repaint();
             }
         });
 

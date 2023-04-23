@@ -33,6 +33,7 @@ public abstract class GameEngine implements KeyListener, MouseListener, MouseMot
         return System.currentTimeMillis();
     }
 
+
     // Waits for ms milliseconds
     public void sleep(double ms) {
         try {
@@ -143,13 +144,7 @@ public abstract class GameEngine implements KeyListener, MouseListener, MouseMot
         mTransforms = new Stack<AffineTransform>();
 
         // Create window
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                // Create the window
-                setupWindow(500,500);
-            }
-        });
+        //I removed this area, which was causing concurrency issues that would result in the button not being displayed successfully
     }
 
     // Create Game Function

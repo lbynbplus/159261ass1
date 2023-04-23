@@ -12,13 +12,13 @@ public class GameCore extends GameEngine{
 
     public GameCore(Homepage homepage){
         this.homepage = homepage;
-        gamePanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                draw(g);
-            }
-        };
+        gamePanel = new JPanel();
+        gamePanel.setBackground(Color.BLACK);
+        gamePanel.setPreferredSize(new Dimension(500, 500));
+
+        gamePanel.setDoubleBuffered(true);
+        gamePanel.addMouseListener(this);
+        gamePanel.addMouseMotionListener(this);
     }
 
     public JPanel getGamePanel() {

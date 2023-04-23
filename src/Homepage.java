@@ -8,15 +8,35 @@ public class Homepage extends GameEngine {
     private HelpPanel mHelpPanel;
     private Homepage mHomepage;
     private GameCore gamecore;
+    boolean left, right, up, down;
+    boolean gameOver;
 
     public static void main(String[] args) {
+
         Homepage game = new Homepage();
-        game.setupWindow(800, 600);
-        game.init();
+        createGame(game);
+        //game.setupWindow(500,500);
+        //game.init();
+    }
+
+    public Homepage() {
+        // Create the window
+        setupWindow(500,500);
+
+        // Create buttons
+        createButtons();
     }
 
     public void init() {
-        createButtons();
+        // Setup booleans
+        left  = false;
+        right = false;
+        up    = false;
+        down  = false;
+
+        gameOver = false;
+
+        //createButtons();
         mHomepage = this;
     }
 

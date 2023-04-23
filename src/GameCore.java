@@ -9,12 +9,17 @@ public class GameCore extends GameEngine{
     private JPanel gamePanel;
     private Homepage homepage;
     private boolean upKey, downKey, leftKey, rightKey, spaceKey;
+    Image apple;
+    Image head;
+    Image body;
 
     public GameCore(Homepage homepage) {
+        apple = loadImage("src/resources/apple.png");
+        head = loadImage("src/resources/head.png");
+        body = loadImage("src/resources/dot.png");
         gamePanel = new JPanel();
         gamePanel.setBackground(Color.BLACK);
-        gamePanel.setPreferredSize(new Dimension(500, 500));
-
+        //gamePanel.setPreferredSize(new Dimension(500, 500));
         gamePanel.setDoubleBuffered(true);
         gamePanel.addMouseListener(this);
         gamePanel.addMouseMotionListener(this);

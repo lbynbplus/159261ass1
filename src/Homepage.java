@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class Homepage extends GameEngine {
 
     private HelpPanel mHelpPanel;
@@ -15,8 +16,7 @@ public class Homepage extends GameEngine {
 
         Homepage game = new Homepage();
         createGame(game);
-        //game.setupWindow(500,500);
-        //game.init();
+
     }
 
     public Homepage() {

@@ -2,44 +2,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 
 public class Homepage extends GameEngine {
 
-    private boolean[] mKeys = new boolean[256];
     private HelpPanel mHelpPanel;
     private Homepage mHomepage;
+    private GameCore gamecore;
 
     public static void main(String[] args) {
         Homepage game = new Homepage();
         game.setupWindow(800, 600);
-        game.initGame();
+        game.init();
     }
 
-    public void initGame() {
-        // 初始化游戏
-        for (int i = 0; i < mKeys.length; i++) {
-            mKeys[i] = false;
-        }
+    public void init() {
         createButtons();
         mHomepage = this;
     }
 
     public void update(double dt) {
-        // 更新游戏状态
-        if (mKeys[KeyEvent.VK_UP] || mKeys[KeyEvent.VK_W]) {
-            // 处理向上移动
-        }
-        if (mKeys[KeyEvent.VK_DOWN] || mKeys[KeyEvent.VK_S]) {
-            // 处理向下移动
-        }
-        if (mKeys[KeyEvent.VK_LEFT] || mKeys[KeyEvent.VK_A]) {
-            // 处理向左移动
-        }
-        if (mKeys[KeyEvent.VK_RIGHT] || mKeys[KeyEvent.VK_D]) {
-            // 处理向右移动
-        }
+
     }
 
     private void createButtons() {
@@ -65,7 +47,8 @@ public class Homepage extends GameEngine {
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // 处理 Play 按钮的动作
+                // 处理 Play 按钮
+                gamecore.getGamePanel();
             }
         });
 
@@ -80,7 +63,7 @@ public class Homepage extends GameEngine {
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // 处理 Quit 按钮的动作
+                // 处理 Quit 按钮
                 System.exit(0);
             }
         });
@@ -105,54 +88,6 @@ public class Homepage extends GameEngine {
         // 绘制游戏界面
     }
 
-    public void keyPressed(KeyEvent e) {
-        // 处理按键事件
-        int keyCode = e.getKeyCode();
-        if (keyCode >= 0 && keyCode < mKeys.length) {
-            mKeys[keyCode] = true;
-        }
-    }
-
-    public void keyReleased(KeyEvent e) {
-        // 处理释放按键事件
-        int keyCode = e.getKeyCode();
-        if (keyCode >= 0 && keyCode < mKeys.length) {
-            mKeys[keyCode] = false;
-        }
-    }
-
-    public void keyTyped(KeyEvent e) {
-        // 处理输入字符事件
-    }
-
-    public void mouseClicked(MouseEvent e) {
-        // 处理鼠标单击事件
-    }
-
-    public void mousePressed(MouseEvent e) {
-        // 处理鼠标按下事件
-    }
-
-    public void mouseReleased(MouseEvent e) {
-        // 处理鼠标释放事件
-    }
-
-    public void mouseEntered(MouseEvent e) {
-        // 处理鼠标进入事件
-    }
-
-    public void mouseExited(MouseEvent e) {
-        // 处理鼠标离开事件
-    }
-
-    public void mouseDragged(MouseEvent e) {
-        // 处理鼠标拖拽事件
-    }
-
-    public void mouseMoved(MouseEvent e) {
-        // 处理鼠标移动事件
-    }
-
     public void openHelpPanel() {
         mFrame.remove(mPanel);
         mHelpPanel = new HelpPanel(this);
@@ -167,4 +102,5 @@ public class Homepage extends GameEngine {
         mFrame.revalidate();
         mFrame.repaint();
     }
+
 }

@@ -8,9 +8,6 @@ public class Homepage extends GameEngine {
 
     private HelpPanel mHelpPanel;
     private Homepage mHomepage;
-    private GameCore gamecore;
-    boolean left, right, up, down;
-    boolean gameOver;
 
     public static void main(String[] args) {
 
@@ -28,13 +25,6 @@ public class Homepage extends GameEngine {
     }
 
     public void init() {
-        // Setup booleans
-        left  = false;
-        right = false;
-        up    = false;
-        down  = false;
-
-        gameOver = false;
 
         //createButtons();
         mHomepage = this;

@@ -8,6 +8,11 @@ public class Homepage extends GameEngine {
 
     private HelpPanel mHelpPanel;
     private Homepage mHomepage;
+    private GameCore gameCore;
+    private GameCore.Snake Snake;
+    Image apple;
+    Image head;
+    Image body;
 
     public static void main(String[] args) {
 
@@ -25,7 +30,9 @@ public class Homepage extends GameEngine {
     }
 
     public void init() {
-
+        apple = loadImage("src/resources/apple.png");
+        head = loadImage("src/resources/head.png");
+        body = loadImage("src/resources/dot.png");
         //createButtons();
         mHomepage = this;
     }
@@ -57,11 +64,7 @@ public class Homepage extends GameEngine {
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mPanel.removeAll();
-                GameCore gameCore = new GameCore(mHomepage);
-                mPanel.add(gameCore.getGamePanel());
-                mPanel.revalidate();
-                mPanel.repaint();
+                GameStart();
             }
         });
 
@@ -99,6 +102,17 @@ public class Homepage extends GameEngine {
 
     public void draw(Graphics2D g) {
         // 绘制游戏界面
+    }
+
+    public void GameStart(){
+        //mPanel.removeAll();
+        gameCore = new GameCore();
+        //mPanel.add(gameCore.getGamePanel());
+        gameCore.gameLoop(30);
+        gameCore.start();
+        mPanel.revalidate();
+        mPanel.repaint();
+
     }
 
     public void openHelpPanel() {

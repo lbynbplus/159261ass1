@@ -153,7 +153,7 @@ public abstract class GameEngine implements KeyListener, MouseListener, MouseMot
         game.init();
 
         // Start the Game
-        game.gameLoop(framerate);
+        //game.gameLoop(framerate);
     }
 
     public static void createGame(GameEngine game) {
